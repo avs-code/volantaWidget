@@ -46,10 +46,10 @@ In administration panel->maintenance->Clear all caches
 - Go to your profile (/profile)
 - You should see the ‘Volanta Export Flights’ widget
 - Select dates and test the CSV download
-- 🗑️ Uninstallation
+## 🗑️ Uninstallation
 - Delete the 2 copied files
 - Remove the lines added to the profile file
 - Clear cache
-- 📋 CSV format generated
+## 📋 CSV format generated
 - The CSV includes these columns for Volanta:
 Origin, Destination, DepartureTime, Duration, Airline, Callsign, FlightNumber, AircraftType, AircraftRegistration, Route, ArrivalTime, Distance, Fuel
