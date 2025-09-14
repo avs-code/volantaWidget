@@ -35,11 +35,20 @@ Exports flights from phpVMS to the CSV format required by Volanta.
 ### Step 1: Copy widget files
 
 # Copy these files to your phpVMS installation:
-installation/app/Widgets/VolantaExportFlights.php
+VolantaExportFlights.php
   → app/Widgets/VolantaExportFlights.php
 
-installation/resources/views/widgets/volanta_export_flights.blade.php
+volanta_export_flights.blade.php
   → resources/views/widgets/volanta_export_flights.blade.php
+  
+  
+├── app/
+│   └── Widgets/
+│       └── VolantaExportFlights.php
+└── resources/
+    └── views/
+        └── widgets/
+            └── volanta_export_flights.blade.php
   
 ### Step 2: Integrate into the Profile view
 
@@ -48,7 +57,7 @@ installation/resources/views/widgets/volanta_export_flights.blade.php
 resources/views/layouts/your_theme_name/profile/index.blade.php
 
 ```
-    {{-- Widget Volanta Export Flights - Solo visible para el propio usuario --}}
+    {{-- Widget Volanta Export Flights - Only visible to the user themselves --}}
 @if (Auth::check() && $user->id === Auth::user()->id)
     <div class="row mt-5">
         <div class="col-sm-12">

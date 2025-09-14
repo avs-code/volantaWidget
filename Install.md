@@ -5,11 +5,21 @@
 ### Step 1: Copy widget files
 
 # Copy these files to your phpVMS installation:
-installation/app/Widgets/VolantaExportFlights.php
+VolantaExportFlights.php
   → app/Widgets/VolantaExportFlights.php
 
-installation/resources/views/widgets/volanta_export_flights.blade.php
+volanta_export_flights.blade.php
   → resources/views/widgets/volanta_export_flights.blade.php
+  
+
+├── app/
+│   └── Widgets/
+│       └── VolantaExportFlights.php
+└── resources/
+    └── views/
+        └── widgets/
+            └── volanta_export_flights.blade.php
+
   
 ### Step 2: Integrate into the Profile view
 
