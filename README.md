@@ -25,7 +25,10 @@ Exports flights from phpVMS to the CSV format required by Volanta.
 
 ## 📸 Screenshots
 
-![Widget Preview](screenshots/volanta-widget-preview.png)
+<img width="1871" height="396" alt="imagen" src="https://github.com/user-attachments/assets/5a382c55-0336-4cf4-a541-f6110a99d959" />
+
+<img width="1858" height="619" alt="imagen" src="https://github.com/user-attachments/assets/0a7742c3-b5f1-49eb-9440-02b24472b280" />
+
 
 
 # Installing the Volanta Export Widget
