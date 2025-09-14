@@ -72,7 +72,7 @@ resources/views/layouts/your_theme_name/profile/index.blade.php
 
 In administration panel->maintenance->Clear all caches
 
-✅ Verification
+## ✅ Verification
 
 - Go to your profile (/profile)
 - You should see the ‘Volanta Export Flights’ widget
