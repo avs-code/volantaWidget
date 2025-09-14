@@ -41,7 +41,7 @@ VolantaExportFlights.php
 volanta_export_flights.blade.php
   → resources/views/widgets/volanta_export_flights.blade.php
   
-  
+```
 ├── app/
 │   └── Widgets/
 │       └── VolantaExportFlights.php
@@ -49,6 +49,7 @@ volanta_export_flights.blade.php
     └── views/
         └── widgets/
             └── volanta_export_flights.blade.php
+```
   
 ### Step 2: Integrate into the Profile view
 
