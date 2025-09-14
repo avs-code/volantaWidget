@@ -32,9 +32,9 @@ Exports flights from phpVMS to the CSV format required by Volanta.
 
 ## 📦 Manual Installation
 
-### Step 1: Copy widget files
+## Step 1: Copy widget files
 
-# Copy these files to your phpVMS installation:
+### Copy these files to your phpVMS installation:
 VolantaExportFlights.php
   → app/Widgets/VolantaExportFlights.php
 
@@ -51,9 +51,9 @@ volanta_export_flights.blade.php
             └── volanta_export_flights.blade.php
 ```
   
-### Step 2: Integrate into the Profile view
+## Step 2: Integrate into the Profile view
 
-# Add these lines to the file:
+### Add these lines to the file:
 
 resources/views/layouts/your_theme_name/profile/index.blade.php
 
@@ -68,7 +68,7 @@ resources/views/layouts/your_theme_name/profile/index.blade.php
 @endif
 ```
 
-### Step 3: Clear cache
+## Step 3: Clear cache
 
 In administration panel->maintenance->Clear all caches
 
