@@ -3,10 +3,8 @@
 namespace App\Widgets;
 
 use App\Contracts\Widget;
-use App\Models\User;
 use App\Models\Pirep;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 
 class VolantaExportFlights extends Widget
 {
@@ -19,19 +17,20 @@ class VolantaExportFlights extends Widget
     public function run()
     {
         $user = Auth::user();
-        $flights = collect(); // Colección vacía por defecto
+        $flights = collect(); 
         $startDate = '';
         $endDate = '';
 
-        // Verificar si se han enviado fechas
-        if (Request::has('start_date') && Request::has('end_date')) {
-            $startDate = Request::get('start_date');
-            $endDate = Request::get('end_date');
+        $validated = request()->validate([
+            'start_date' => 'nullable|date|before_or_equal:end_date',
+            'end_date'   => 'nullable|date|after_or_equal:start_date',
+        ]);
 
-            // Solo hacer la consulta si ambas fechas están presentes
-            if ($startDate && $endDate) {
-                $flights = $this->getFlights($user->id, $startDate, $endDate);
-            }
+        $startDate = $validated['start_date'] ?? '';
+        $endDate = $validated['end_date'] ?? '';
+
+        if ($startDate && $endDate && $user) {
+            $flights = $this->getFlights($user->id, $startDate, $endDate);
         }
 
         return view('widgets.volanta_export_flights', [
@@ -40,7 +39,7 @@ class VolantaExportFlights extends Widget
             'flights' => $flights,
             'start_date' => $startDate,
             'end_date' => $endDate,
-            'search_performed' => Request::has('start_date') && Request::has('end_date')
+            'search_performed' => !empty($startDate) && !empty($endDate)
         ]);
     }
 
@@ -64,8 +63,9 @@ class VolantaExportFlights extends Widget
         ->join('aircraft', 'aircraft.id', '=', 'pireps.aircraft_id')
         ->join('airlines', 'airlines.id', '=', 'pireps.airline_id')
         ->where('pireps.user_id', $userId)
-        ->whereBetween('pireps.block_off_time', [$startDate . ' 00:00:00', $endDate . ' 23:59:59'])
+        ->whereBetween('pireps.block_off_time', ["$startDate 00:00:00", "$endDate 23:59:59"])
         ->orderBy('pireps.block_on_time', 'desc')
+        ->limit(250)
         ->get();
     }
 }
