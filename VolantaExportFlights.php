@@ -14,6 +14,8 @@ class VolantaExportFlights extends Widget
         'enabled' => true,
     ];
 
+    protected $limit = 250;
+
     public function run()
     {
         $user = Auth::user();
@@ -39,7 +41,9 @@ class VolantaExportFlights extends Widget
             'flights' => $flights,
             'start_date' => $startDate,
             'end_date' => $endDate,
-            'search_performed' => !empty($startDate) && !empty($endDate)
+            'search_performed' => !empty($startDate) && !empty($endDate),
+            'limit_reached' => $flights->count() >= $this->limit,
+            'limit' => $this->limit,
         ]);
     }
 
@@ -65,7 +69,7 @@ class VolantaExportFlights extends Widget
         ->where('pireps.user_id', $userId)
         ->whereBetween('pireps.block_off_time', ["$startDate 00:00:00", "$endDate 23:59:59"])
         ->orderBy('pireps.block_on_time', 'desc')
-        ->limit(250)
+        ->limit($this->limit)
         ->get();
     }
 }

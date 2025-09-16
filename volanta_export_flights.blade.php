@@ -49,6 +49,13 @@
                     </button>
                 </div>
 
+                @if(isset($limit_reached) && $limit_reached)
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>                        
+                        Only the first {{ $limit }} flights have been displayed. There may be more results in the selected range.
+                    </div>
+                @endif
+
                 <div class="table-responsive">
                     <table class="table table-sm table-striped">
                         <thead>
