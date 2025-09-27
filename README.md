@@ -2,6 +2,8 @@
 
 Exports flights from phpVMS to the CSV format required by Volanta.
 
+https://github.com/avs-code/volantaWidget
+
 ## ✨ Features
 
 - 📅 Customisable date selection
