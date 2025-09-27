@@ -1,4 +1,4 @@
-# Widget Volanta Export para phpVMS 7
+# Widget Volanta Export phpVMS 7
 
 Exports flights from phpVMS to the CSV format required by Volanta.
 
