@@ -89,3 +89,14 @@ In administration panel->maintenance->Clear all caches
 ## 📋 CSV format generated
 - The CSV includes these columns for Volanta:
 - Origin, Destination, DepartureTime, Duration, Airline, Callsign, FlightNumber, AircraftType, AircraftRegistration, Route, ArrivalTime, Distance, Fuel
+
+## ✅ Use
+
+- Go to your profile (/profile).
+- Click on Volanta Export button.
+- Select dates and click over Search flights.
+- Click again on Volanta Export button to see the results.
+- Click on Download CSV for Volanta.
+- In your Volanta app, Settings -> Data Import/Export -> Manual -> Select CSV.
+- Select Data to import, Aircraft and Flights, the selected data will merged in aircraft case, or duplicated in fligths case, so select only flights that you don't actually have in Volanta.
+- Click on Begin Import.
