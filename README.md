@@ -62,7 +62,7 @@ volanta_export_flights.blade.php
 
 resources/views/layouts/your_theme_name/profile/index.blade.php
 
-```
+```php
     {{-- Widget Volanta Export Flights - Only visible to the user themselves --}}
 @if (Auth::check() && $user->id === Auth::user()->id)
     <div class="row mt-5">
