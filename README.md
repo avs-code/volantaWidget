@@ -76,10 +76,12 @@ Here's an example of how to integrate it into the Disposable theme using Disposa
 
 resources/views/layouts/your_theme_name/profile/index.blade.php
 
+In this block:
 ```
 {{-- Inline Navigation --}}
       <ul class="nav nav-pills nav-fill mb-2" id="details-tab" role="tablist">
 ```
+Write this:
 ```php
         @if($DBasic && $user->flights > 0)
           <li class="nav-item m-1" role="presentation">
@@ -89,13 +91,11 @@ resources/views/layouts/your_theme_name/profile/index.blade.php
           </li>
         @endif
 ```
-```
-      </ul>
-```
-
+Below you find this block (the tab content block)
 ```
 <div class="tab-content mt-2" id="details-tabContent">
 ```
+Write this in:
 ```php
     {{-- Widget Volanta Export Flights - Only visible to the user themselves --}}
 @if (Auth::check() && $user->id === Auth::user()->id)
@@ -105,12 +105,6 @@ resources/views/layouts/your_theme_name/profile/index.blade.php
         </div>
     </div>
 @endif
-```
-```
-</div>
-@endsection
-
-@section('scripts')
 ```
 
 ## Step 3: Clear cache
