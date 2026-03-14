@@ -92,6 +92,14 @@
                     No flights found for the selected period. Try with a different date range.
                 </div>
             @endif
+            <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var volantaTabButton = document.querySelector('#volanta-tab');
+                if (volantaTabButton) {
+                bootstrap.Tab.getOrCreateInstance(volantaTabButton).show();
+                }
+            });
+            </script>
         @else
         @endif
     </div>

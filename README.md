@@ -58,10 +58,44 @@ volanta_export_flights.blade.php
   
 ## Step 2: Integrate into the Profile view
 
-### Add these lines to the file:
+### Add the widget to the file:
 
 resources/views/layouts/your_theme_name/profile/index.blade.php
 
+```php
+@widget('VolantaExportFlights')
+```
+
+Wherever you want to display the exporter.
+
+NOTE: Each theme is different and require adjustments to display properly integrated.
+
+Contributions to adapt the widget to different themes are welcome.
+
+Here's an example of how to integrate it into the Disposable theme using Disposable Basic
+
+resources/views/layouts/your_theme_name/profile/index.blade.php
+
+```
+{{-- Inline Navigation --}}
+      <ul class="nav nav-pills nav-fill mb-2" id="details-tab" role="tablist">
+```
+```php
+        @if($DBasic && $user->flights > 0)
+          <li class="nav-item m-1" role="presentation">
+            <button class="nav-link p-0 px-1" id="volanta-tab" data-bs-toggle="pill" data-bs-target="#volanta" type="button" role="tab" aria-controls="volanta" aria-selected="false">
+              Volanta Export
+            </button>
+          </li>
+        @endif
+```
+```
+      </ul>
+```
+
+```
+<div class="tab-content mt-2" id="details-tabContent">
+```
 ```php
     {{-- Widget Volanta Export Flights - Only visible to the user themselves --}}
 @if (Auth::check() && $user->id === Auth::user()->id)
@@ -71,6 +105,12 @@ resources/views/layouts/your_theme_name/profile/index.blade.php
         </div>
     </div>
 @endif
+```
+```
+</div>
+@endsection
+
+@section('scripts')
 ```
 
 ## Step 3: Clear cache
@@ -95,7 +135,6 @@ In administration panel->maintenance->Clear all caches
 - Go to your profile (/profile).
 - Click on Volanta Export button.
 - Select dates and click over Search flights.
-- Click again on Volanta Export button to see the results.
 - Click on Download CSV for Volanta.
 - In your Volanta app, Settings -> Data Import/Export -> Manual -> Select CSV.
 - Select Data to import, Aircraft and Flights, the selected data will merged in aircraft case, or duplicated in fligths case, so select only flights that you don't actually have in Volanta.
